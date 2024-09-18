@@ -74,7 +74,7 @@ public class AnimalsController : ControllerBase
         Animal animal = await _db.Animals.FindAsync(id);
         if(animal == null)
         {
-            return animal;
+            return NotFound();
         }
 
         return animal;
