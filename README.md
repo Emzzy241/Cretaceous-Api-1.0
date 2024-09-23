@@ -77,8 +77,9 @@ Notice that the value of animalId needs to match the id number in the URL in thi
 
 
 ### Documentation on Further Exploration
-* _Further xploration is a section where new things will be added to our API to increase its capabilities_
+* _Further exploration is a section where new things will be added to our API to increase its capabilities_
 * _As the WebAPI project grows, we would update developers on some of the new changes. Please stay tuned as features like authentication, pagination, versioning, CORS will soon be added_
+
 ## Setup/Installation
 1. **Clone the Repository**: Open your Git Bash terminal and run the following command to clone the project:
     ```sh
@@ -87,7 +88,7 @@ Notice that the value of animalId needs to match the id number in the URL in thi
 
 2. **Install .NET 6.0 Framework**: Ensure you have the .NET 6.0 Framework installed (used .NET 6.0.402 for this application) on your PC. Make sure you have completed the essential steps to write C# code in the C# REPL Terminal.
 
-3. **Create `appSettings.json`**: After cloning the repository, you need to create an `appSettings.json` file in the root directory of the project. Be sure to create it in the production directory of your project (`LibraryCatalogue.Solution/LibraryCatalogue/appSettings.json`). Use the following template for your `appSettings.json`:
+3. **Create `appSettings.json`**: After cloning the repository, you need to create an `appSettings.json` file in the root directory of the project. Be sure to create it in the production directory of your project (`CretaceousApi.Solution/CretaceousApi/appSettings.json`). Use the following template for your `appSettings.json`:
 
     ```json
     {
@@ -116,7 +117,7 @@ Notice that the value of animalId needs to match the id number in the URL in thi
             ```sh
             dotnet run
             ```
-            Copy the link where the projet is hosted on git bash or nay other terminal window you are use and paste the link in a browser
+            Copy the link where the project is hosted on git bash or nay other terminal window you are use and paste the link in a browser
 
         3. **Run the Project with watch run**: This is the one we really recommend because it opens up the Swagger UI on your default browser, and there you can carry out all the API requests that have been defined inside the controller. Run the code below:
         ```sh
