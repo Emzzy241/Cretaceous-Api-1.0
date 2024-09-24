@@ -36,8 +36,10 @@ public class AnimalService : IAnimalService
         await _animalRepository.Put(id, animal);
     }
 
-    public void DeleteAnimal(int id)
+    public async Task DeleteAnimal(int id)
     {
-        _animalRepository.DeleteAnimal(id);
+        await _animalRepository.DeleteAnimal(id);
     }
+
+    
 }

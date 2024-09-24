@@ -65,9 +65,8 @@ public class AnimalsController : ControllerBase, IAnimalService
 
 
     [HttpDelete("{id}")]
-    public void DeleteAnimal(int id)
+    public async Task DeleteAnimal(int id)
     {
-        _animalService.DeleteAnimal(id);
-        
+        await _animalService.DeleteAnimal(id);        
     }
 }

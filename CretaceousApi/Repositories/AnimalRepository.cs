@@ -81,45 +81,16 @@ public class AnimalRepository : ControllerBase, IAnimalRepository
     }
 
 
-
-    //  public async void Put(int id, Animal animal)
-    // {
-    //   if (id != animal.AnimalId)
-    //   {
-    //     return BadRequest();
-    //   }
-
-    //   _db.Animals.Update(animal);
-
-    //   try
-    //   {
-    //     await _db.SaveChangesAsync();
-    //   }
-    //   catch (DbUpdateConcurrencyException)
-    //   {
-    //     if (!AnimalExists(id))
-    //     {
-    //       return NotFound();
-    //     }
-    //     else
-    //     {
-    //       throw;
-    //     }
-    //   }
-
-    // }
-
-    public async void DeleteAnimal(int id)
+    public async Task DeleteAnimal(int id)
     {
         Animal animal = await _db.Animals.FindAsync(id);
-        // if (animal == null)
-        // {
-        //     return NotFound();
-        // }
+        if (animal == null)
+        {
+            throw new Exception("Animal not found");
+        }
 
         _db.Animals.Remove(animal);
-        await _db.SaveChangesAsync();
-
+        await _db.SaveChangesAsync();     
     }
 
     public bool AnimalExists(int id)

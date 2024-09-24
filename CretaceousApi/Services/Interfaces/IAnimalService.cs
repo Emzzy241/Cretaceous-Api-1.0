@@ -11,5 +11,5 @@ public interface IAnimalService
     Animal GetAnimalById(int id);
     Task Post(Animal animal);
     Task Put(int id, Animal animal);
-    void DeleteAnimal(int id);
+    Task DeleteAnimal(int id);
 }
