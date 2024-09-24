@@ -26,9 +26,9 @@ public class AnimalService : IAnimalService
         return _animalRepository.GetAnimal(id);
     }
 
-    public void Post(Animal animal)
+    public async Task Post(Animal animal)
     {
-        _animalRepository.Post(animal);
+        await _animalRepository.Post(animal);
     }
 
     public async Task Put(int id, Animal animal)

@@ -51,7 +51,7 @@ public class AnimalRepository : ControllerBase, IAnimalRepository
 
     // }
 
-     public async void Post(Animal animal)
+     public async Task Post(Animal animal)
     {
         _db.Animals.Add(animal);
         await _db.SaveChangesAsync();

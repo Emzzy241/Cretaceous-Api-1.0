@@ -9,7 +9,7 @@ public interface IAnimalService
 {
     Task<List<Animal>> Get();
     Animal GetAnimalById(int id);
-    void Post(Animal animal);
+    Task Post(Animal animal);
     Task Put(int id, Animal animal);
     void DeleteAnimal(int id);
 }

@@ -43,9 +43,9 @@ public class AnimalsController : ControllerBase, IAnimalService
     
 
     [HttpPost]
-    public void Post(Animal animal)
+    public async Task Post(Animal animal)
     {
-      _animalService.Post(animal);
+      await _animalService.Post(animal);
    
     }
 
@@ -58,7 +58,7 @@ public class AnimalsController : ControllerBase, IAnimalService
 
     // I had to include [FromBody] to actuallymake sure my Put() method works the right way
     [HttpPut("{id}")]
-    public async Task Put(int id, [FromBody] Animal animal)
+    public async Task Put(int id, [FromBody] Animal animal) // Ensure the animal is from the request body
     {
             await _animalService.Put(id, animal);
     }

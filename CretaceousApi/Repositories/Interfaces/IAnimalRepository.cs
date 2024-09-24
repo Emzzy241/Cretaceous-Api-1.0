@@ -10,7 +10,7 @@ public interface IAnimalRepository
 {
     Task<List<Animal>> Get();
     Animal GetAnimal(int id);
-    void Post(Animal animal);
+    Task Post(Animal animal);
     Task Put(int id, Animal animal);
     void DeleteAnimal(int id);
 }
