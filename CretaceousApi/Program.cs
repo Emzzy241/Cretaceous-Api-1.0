@@ -1,5 +1,6 @@
 using CretaceousApi.Models;
 using Microsoft.EntityFrameworkCore;
+using CretaceousApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
