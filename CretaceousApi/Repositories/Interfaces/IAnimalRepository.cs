@@ -8,9 +8,9 @@ using CretaceousApi.Models;
 namespace CretaceousApi.Repositories;
 public interface IAnimalRepository
 {
-    List<Animal> Get();
+    Task<List<Animal>> Get();
     Animal GetAnimal(int id);
     void Post(Animal animal);
-    void Put(int id, Animal animal);
+    Task Put(int id, Animal animal);
     void DeleteAnimal(int id);
 }

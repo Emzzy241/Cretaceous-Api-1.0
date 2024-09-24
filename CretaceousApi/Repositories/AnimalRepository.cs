@@ -23,10 +23,16 @@ public class AnimalRepository : ControllerBase, IAnimalRepository
     //     return _db.Animals.ToListAsync();
     // }
 
-    public List<Animal> Get()
+    // public List<Animal> Get()
+    // {
+    //   return _db.Animals.ToList();
+    // }
+
+    public async Task<List<Animal>> Get()
     {
-      return _db.Animals.ToList();
+        return await _db.Animals.ToListAsync(); 
     }
+
 
     public Animal GetAnimal(int id)
     {
@@ -51,11 +57,29 @@ public class AnimalRepository : ControllerBase, IAnimalRepository
         await _db.SaveChangesAsync();
     }
     
-     public async void Put(int id, Animal animal)
+    //  public async void Put(int id, Animal animal)
+    // {
+    //   _db.Animals.Update(animal);
+    //   await _db.SaveChangesAsync();
+    // }
+
+    public async Task Put(int id, Animal animal)
     {
-      _db.Animals.Update(animal);
-      await _db.SaveChangesAsync();
+        var existingAnimal = await _db.Animals.FindAsync(id);
+        if (existingAnimal == null)
+        {
+            throw new Exception("Animal not found");
+        }
+
+        // Update the properties
+        existingAnimal.Name = animal.Name;
+        existingAnimal.Species = animal.Species;
+        existingAnimal.Age = animal.Age;
+
+        // Save changes
+        await _db.SaveChangesAsync();
     }
+
 
 
     //  public async void Put(int id, Animal animal)

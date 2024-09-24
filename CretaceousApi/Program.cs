@@ -1,13 +1,30 @@
 using CretaceousApi.Models;
 using Microsoft.EntityFrameworkCore;
 using CretaceousApi.Data;
+using CretaceousApi.Repositories;
+using CretaceousApi.Services;
+using CretaceousApi.Controllers;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 // Since we're building a web API that means there are no views, so we only add controllers as a service with the line builder.Services.AddControllers();; this is unlike in MVC apps where we add both controllers and views with builder.Services.AddControllersWithViews();.
+// Add services to the container
 builder.Services.AddControllers();
+
+// Enable CORS globally
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
 
 // Adding the middleware for our DbContext
 builder.Services.AddDbContext<CretaceousApiContext>(
@@ -18,6 +35,17 @@ builder.Services.AddDbContext<CretaceousApiContext>(
                     )
                   )
                 );
+
+                /*
+                  Explanation:
+DbContext Registration: This registers the CretaceousDbContext to manage your database connections.
+Scoped Service Registration: Both AnimalService and AnimalRepository are registered using AddScoped. This means they will be created once per request and disposed after the request ends.
+Mapping Controllers: app.MapControllers(); is responsible for setting up the API routing for your controllers.
+                */
+
+// Register your services and repositories
+builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
+builder.Services.AddScoped<IAnimalService, AnimalService>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

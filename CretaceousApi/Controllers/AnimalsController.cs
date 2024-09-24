@@ -14,16 +14,17 @@ namespace CretaceousApi.Controllers;
 [ApiController]
 public class AnimalsController : ControllerBase, IAnimalService
 {
-    private readonly AnimalService _animalService;
+    private readonly IAnimalService _animalService;
     
-    public AnimalsController(AnimalService animalService)
+    // To ensure that the AnimalsController is injecting the interface IAnimalService, not the AnimalService class directly
+    public AnimalsController(IAnimalService animalService)
     {
         _animalService = animalService;
     }
 
 
     [HttpGet]
-    public List<Animal> Get()
+    public Task<List<Animal>> Get()
     {   
       return _animalService.Get();
     }    
@@ -49,11 +50,19 @@ public class AnimalsController : ControllerBase, IAnimalService
     }
 
 
+    // [HttpPut("{id}")]
+    // public async Task Put(int id, Animal animal)
+    // {
+    //   _animalService.Put(id, animal);
+    // }
+
+    // I had to include [FromBody] to actuallymake sure my Put() method works the right way
     [HttpPut("{id}")]
-    public void Put(int id, Animal animal)
+    public async Task Put(int id, [FromBody] Animal animal)
     {
-      _animalService.Put(id, animal);
+            await _animalService.Put(id, animal);
     }
+
 
     [HttpDelete("{id}")]
     public void DeleteAnimal(int id)

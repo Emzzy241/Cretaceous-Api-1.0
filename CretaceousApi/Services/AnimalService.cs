@@ -15,7 +15,7 @@ public class AnimalService : IAnimalService
         _animalRepository = animalRepository;
     }
 
-    public List<Animal> Get()
+    public Task<List<Animal>> Get()
     {
         return _animalRepository.Get();
     }
@@ -31,9 +31,9 @@ public class AnimalService : IAnimalService
         _animalRepository.Post(animal);
     }
 
-    public void Put(int id, Animal animal)
+    public async Task Put(int id, Animal animal)
     {
-        _animalRepository.Put(id, animal);
+        await _animalRepository.Put(id, animal);
     }
 
     public void DeleteAnimal(int id)
