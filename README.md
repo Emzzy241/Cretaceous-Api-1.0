@@ -99,7 +99,7 @@ Notice that the value of animalId needs to match the id number in the URL in thi
     ```json
     {
         "ConnectionStrings": {
-            "DefaultConnection": "Server=localhost;Port=3306;database=to_do_list_with_mysqlconnector;uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];"
+            "DefaultConnection": "Server=localhost;Port=3306;database=cretaceous_api;uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];"
         }
     }
     ```
