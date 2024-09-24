@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore; 
+using CretaceousApi.Models;
 
-namespace CretaceousApi.Models;
+namespace CretaceousApi.Data;
 public class CretaceousApiContext : DbContext
 {
     public DbSet<Animal> Animals { get; set; }

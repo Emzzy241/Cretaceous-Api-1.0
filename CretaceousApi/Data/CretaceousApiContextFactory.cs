@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace CretaceousApi.Models;
+namespace CretaceousApi.Data;
     public class CretaceousApiContextFactory : IDesignTimeDbContextFactory<CretaceousApiContext>
     {
         public CretaceousApiContext CreateDbContext(string[] args)
