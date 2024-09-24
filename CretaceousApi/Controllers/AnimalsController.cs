@@ -58,12 +58,7 @@ public class AnimalsController : ControllerBase, IAnimalService
     [HttpDelete("{id}")]
     public void DeleteAnimal(int id)
     {
-        Animal animal = _animalService.DeleteAnimal(id);
-        if (animal == null)
-          {
-              return NotFound();
-          }
-          
-        return NoContent();
+        _animalService.DeleteAnimal(id);
+        
     }
 }
