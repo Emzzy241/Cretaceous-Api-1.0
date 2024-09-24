@@ -6,9 +6,15 @@
 ## Technologies Used
 * Git
 * C#
-* .NET6.0 Framework
-* Asp.Net Core Web API
-* MySql
+* .NET 6.0 Framework
+* ASP.NET Core RESTful APIs
+* Entity Framework Core
+* Pomelo.EntityFrameworkCore.MySql
+* Swagger/OpenAPI
+* Layered (3-tier) Architecture
+* Dependency Injection
+* Asynchronous Programming
+* JSON
 
 ## Description
 _An API for animals that lived during the Cretacous Period._
